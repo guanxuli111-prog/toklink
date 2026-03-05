@@ -27,13 +27,18 @@
         #contact-modal.active { display: flex; }
         #advantages-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); z-index: 100; justify-content: center; align-items: center; }
         #advantages-modal.active { display: flex; }
-        /* status panel styles imported from index5 */
         #status-panel { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1000; padding: 2rem; overflow-y: auto; }
         #status-panel.active { display: block; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
         .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
         .dot-online { background: #10B981; box-shadow: 0 0 8px #10B981; }
         .mono { font-family: 'JetBrains Mono', monospace; }
+        .qr-pulse { animation: qr-pulse-anim 2s infinite ease-in-out; }
+        @keyframes qr-pulse-anim {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body class="antialiased text-gray-200">
@@ -54,7 +59,7 @@
     <section class="pt-48 pb-32 px-6 text-center relative overflow-hidden">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-brand-primary/5 blur-[120px] rounded-full z-[-1]"></div>
         <div class="max-w-5xl mx-auto">
-            <h1 class="text-5xl md:text-8xl font-extrabold mb-8 tracking-tight text-white">
+            <h1 class="text-5xl md:text-8xl font-extrabold mb-8 tracking-tight text-white leading-tight">
                 让跨境连接<br/><span class="gradient-text">回归真实与稳定</span>
             </h1>
             <p class="text-gray-400 text-lg md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -169,102 +174,96 @@
         </div>
     </section>
 
-    <!-- Guarantee section added from index3 -->
     <section id="guarantee" class="py-24 px-6 text-center bg-white/[0.01]">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold mb-16">为什么选择 Toklink？</h2>
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <div class="text-3xl mb-4">💎</div>
-                    <h4 class="font-bold mb-2">真实资源</h4>
-                    <p class="text-gray-500 text-sm">严选当地运营商原生机房，绝不使用虚拟 IP 混充。</p>
+                    <h4 class="font-bold mb-2 text-white">真实资源</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed text-center">严选当地运营商原生机房，绝不使用虚拟 IP 混充。</p>
                 </div>
                 <div>
                     <div class="text-3xl mb-4">⚡</div>
-                    <h4 class="font-bold mb-2">极致稳定</h4>
-                    <p class="text-gray-500 text-sm">自研传输协议优化，针对 TikTok 视频上传与直播特调。</p>
+                    <h4 class="font-bold mb-2 text-white">极致稳定</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed text-center">自研传输协议优化，针对 TikTok 视频上传与直播特调。</p>
                 </div>
                 <div>
                     <div class="text-3xl mb-4">🤝</div>
-                    <h4 class="font-bold mb-2">深度顾问</h4>
-                    <p class="text-gray-500 text-sm">不只是卖工具，我们提供全套跨境运营环境设置方案。</p>
+                    <h4 class="font-bold mb-2 text-white">深度顾问</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed text-center">不只是卖工具，我们提供全套跨境运营环境设置方案。</p>
                 </div>
                 <div>
                     <div class="text-3xl mb-4">💬</div>
-                    <h4 class="font-bold mb-2">极速响应</h4>
-                    <p class="text-gray-500 text-sm">专业技术团队 7x24h 待命，解决您的一切突发网络需求。</p>
+                    <h4 class="font-bold mb-2 text-white">极速响应</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed text-center">专业技术团队 7x24h 待命，解决您的一切突发网络需求。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing section added from index3 -->
     <section id="pricing" class="py-24 px-6">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
 
-            <div class="glass-card p-12 border-brand-accent/20 bg-gradient-to-br from-brand-accent/20 to-brand-accent/30 hover:shadow-2xl hover:scale-105 transform transition duration-300 relative">
-                <div class="absolute top-4 right-4 px-2 py-1 text-xs bg-yellow-500 text-white rounded-full">Beta</div>
+            <div class="glass-card p-12 border-brand-accent/20 bg-gradient-to-br from-brand-accent/5 to-brand-accent/10 hover:shadow-2xl hover:scale-105 transform transition duration-300 relative">
+                <div class="absolute top-4 right-4 px-2 py-1 text-xs bg-yellow-500/20 text-yellow-500 border border-yellow-500/30 rounded-full">Beta</div>
                 <div class="text-4xl mb-4">🎬</div>
-                <h3 class="text-2xl font-bold mb-4 gradient-text">内容创作版（beta）</h3>
-                <p class="text-gray-100 mb-8 font-medium">专为短视频与社媒内容创作者设计</p>
-                <ul class="space-y-4 mb-10 text-gray-200">
-                    <li class="flex items-center gap-3"><span class="text-green-400">✔</span> 加速短视频上传与编辑</li>
-                    <li class="flex items-center gap-3"><span class="text-green-400">✔</span> 社媒平台专用流量优化</li>
-                    <li class="flex items-center gap-3"><span class="text-green-400">✔</span> 轻量级住宅 IP</li>
-                    <li class="flex items-center gap-3"><span class="text-green-400">✔</span> 弹性带宽套餐</li>
+                <h3 class="text-2xl font-bold mb-4 gradient-text text-left">内容创作版</h3>
+                <p class="text-gray-400 mb-8 font-medium text-left">专为短视频与社媒内容创作者设计</p>
+                <ul class="space-y-4 mb-10 text-gray-300">
+                    <li class="flex items-center gap-3"><span class="text-brand-accent">✔</span> 加速短视频上传与编辑</li>
+                    <li class="flex items-center gap-3"><span class="text-brand-accent">✔</span> 社媒平台专用流量优化</li>
+                    <li class="flex items-center gap-3"><span class="text-brand-accent">✔</span> 轻量级住宅 IP 接入</li>
+                    <li class="flex items-center gap-3"><span class="text-brand-accent">✔</span> 实时监控与分析</li>
                 </ul>
-                <button onclick="openConsultationModal()" class="w-full py-4 glass-card rounded-xl font-bold hover:bg-white hover:text-brand-accent transition"> ￥98 元/月</button>
+                <button onclick="openConsultationModal()" class="w-full py-4 glass-card rounded-xl font-bold hover:bg-brand-accent hover:text-white transition">咨询获取方案</button>
             </div>
 
-            <div class="glass-card p-12 border-brand-primary/20 bg-gradient-to-br from-brand-primary/10 to-brand-primary/20 hover:shadow-2xl hover:scale-105 transform transition duration-300 relative">
-                <div class="absolute top-4 right-4 text-sm text-brand-accent font-bold">热门</div>
+            <div class="glass-card p-12 border-brand-primary/20 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 hover:shadow-2xl hover:scale-105 transform transition duration-300 relative">
+                <div class="absolute top-4 right-4 text-sm text-brand-accent font-bold">最热门</div>
                 <div class="text-4xl mb-4">🎯</div>
-                <h3 class="text-2xl font-bold mb-4 gradient-text">专业运营版</h3>
-                <p class="text-gray-100 mb-8 font-medium">最适合 TikTok 直播/独立站/亚马逊精品运营</p>
-                <ul class="space-y-4 mb-10 text-gray-200">
-                    <li class="flex items-center gap-3"><span class="text-green-400">✔</span> 静态独享住宅 ISP IP</li>
-                    <li class="flex items-center gap-3"><span class="text-green-400">✔</span> TikTok 原生全业务支持</li>
-                    <li class="flex items-center gap-3"><span class="text-green-400">✔</span> 支持多端快速接入</li>
-                    <li class="flex items-center gap-3"><span class="text-green-400">✔</span> 独立专线传输带宽</li>
+                <h3 class="text-2xl font-bold mb-4 gradient-text text-left">专业运营版</h3>
+                <p class="text-gray-400 mb-8 font-medium text-left">最适合 TikTok 直播/独立站/亚马逊精品运营</p>
+                <ul class="space-y-4 mb-10 text-gray-300">
+                    <li class="flex items-center gap-3"><span class="text-brand-accent">✔</span> 静态独享住宅 ISP IP</li>
+                    <li class="flex items-center gap-3"><span class="text-brand-accent">✔</span> TikTok 直播专线优化</li>
+                    <li class="flex items-center gap-3"><span class="text-brand-accent">✔</span> 独立专线传输带宽</li>
+                    <li class="flex items-center gap-3"><span class="text-brand-accent">✔</span> 支持多端快速接入</li>
                 </ul>
-                <button onclick="openConsultationModal()" class="w-full py-4 bg-brand-primary rounded-xl font-bold hover:bg-brand-primary/90 transition">￥198 元/月</button>
+                <button onclick="openConsultationModal()" class="w-full py-4 bg-brand-primary rounded-xl font-bold hover:bg-brand-primary/90 transition text-white">联系获取试用</button>
             </div>
 
-            <div class="glass-card p-12 border-white/10 bg-brand-card/20 hover:shadow-2xl hover:scale-105 transform transition duration-300">
+            <div class="glass-card p-12 border-white/10 bg-brand-card/20 hover:shadow-2xl hover:scale-105 transform transition duration-300 relative">
                 <div class="text-4xl mb-4">⚙️</div>
-                <h3 class="text-2xl font-bold mb-4 gradient-text">企业定制版</h3>
-                <p class="text-gray-100 mb-8">适合 MCN 机构/大规模店铺矩阵运营</p>
-                <ul class="space-y-4 mb-10 text-gray-200 text-sm">
-                    <li class="flex items-center gap-3"><span class="text-green-400">✔</span> 全球多国家节点任选</li>
-                    <li class="flex items-center gap-3"><span class="text-green-400">✔</span> API 自动化管理面板</li>
-                    <li class="flex items-center gap-3"><span class="text-green-400">✔</span> 专家级防关联策略指导</li>
-                    <li class="flex items-center gap-3"><span class="text-green-400">✔</span> 极速大带宽/不限流量支持</li>
+                <h3 class="text-2xl font-bold mb-4 gradient-text text-left">企业定制版</h3>
+                <p class="text-gray-400 mb-8 text-left">适合 MCN 机构/大规模店铺矩阵运营</p>
+                <ul class="space-y-4 mb-10 text-gray-300 text-sm">
+                    <li class="flex items-center gap-3"><span class="text-brand-accent">✔</span> 全球多国家节点任选</li>
+                    <li class="flex items-center gap-3"><span class="text-brand-accent">✔</span> API 自动化管理面板</li>
+                    <li class="flex items-center gap-3"><span class="text-brand-accent">✔</span> 极速大带宽/不限流量</li>
+                    <li class="flex items-center gap-3"><span class="text-brand-accent">✔</span> 专家级防关联策略指导</li>
                 </ul>
-                <button onclick="openConsultationModal()" class="w-full py-4 glass-card rounded-xl font-bold hover:bg-white hover:text-brand-accent transition">获取企业定制方案</button>
+                <button onclick="openConsultationModal()" class="w-full py-4 glass-card rounded-xl font-bold hover:bg-white hover:text-brand-accent transition">获取定制方案</button>
             </div>
         </div>
     </section>
 
     <footer class="py-24 px-6 text-center border-t border-white/5">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold mb-8">准备好提升您的跨境效率了吗？</h2>
-            <!-- <p class="text-gray-500 mb-12">已有 500+ MCN 机构与专业卖家选择了 Toklink</p> -->
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8 text-white">准备好提升您的跨境效率了吗？</h2>
             <div class="inline-flex flex-col items-center gap-6">
-                <button onclick="openConsultationModal()" class="px-12 py-5 bg-brand-primary rounded-2xl font-bold text-xl hover:shadow-[0_0_30px_rgba(79,70,229,0.3)] transition">了解完整功能</button>
-                <!-- <div class="text-brand-accent font-mono text-lg font-bold">官网：www.toklink.com</div> -->
+                <button onclick="openConsultationModal()" class="px-12 py-5 bg-brand-primary rounded-2xl font-bold text-xl hover:shadow-[0_0_30px_rgba(79,70,229,0.3)] transition text-white">联系顾问并获取试用</button>
             </div>
-
             <div class="mt-20 pt-8 border-t border-white/5 text-gray-700 text-xs">
                 © 2026 Toklink | 全球数字身份管理与网络加速方案提供商
             </div>
         </div>
-
     </footer>
 
     <div id="advantages-modal" onclick="closeAdvantagesPanel(event)">
         <div class="glass-card p-12 max-w-2xl w-full mx-6 max-h-[80vh] overflow-y-auto border border-brand-primary/30">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold">Toklink 核心优势</h3>
+                <h3 class="text-2xl font-bold text-white">Toklink 核心优势</h3>
                 <button onclick="closeAdvantagesPanel(null, true)" class="text-gray-500 hover:text-white text-2xl">✕</button>
             </div>
             <div class="space-y-6 text-gray-300">
@@ -297,28 +296,30 @@
     </div>
 
     <div id="contact-modal" onclick="closeConsultationModal(event)">
-        <div class="glass-card p-12 max-w-sm w-full mx-6 text-center relative border border-brand-primary/30">
+        <div class="glass-card p-12 max-w-sm w-full mx-6 text-center relative border border-brand-primary/30 bg-brand-card">
             <button onclick="closeConsultationModal(null, true)" class="absolute top-6 right-6 text-gray-500 hover:text-white text-2xl">✕</button>
-            <h3 class="text-2xl font-bold mb-6">咨询专属方案</h3>
-            <p class="text-gray-400 mb-8 text-sm leading-relaxed">根据您的业务规模定制化方案。我们的技术团队将为您详细介绍产品能力与落地方案。</p>
-            <!-- <div class="w-48 h-48 bg-white/5 mx-auto mb-8 rounded-xl flex items-center justify-center border border-white/10">
-                <span class="text-xs text-gray-600">交流可通过官网获取</span>
-            </div> -->
-            <div class="font-mono text-brand-primary font-bold bg-brand-primary/10 py-3 rounded-lg border border-brand-primary/20">
-                wechat: ToklinkSupport
+            <h3 class="text-2xl font-bold mb-6 text-white font-heading">获取产品试用</h3>
+            <p class="text-gray-400 mb-8 text-sm leading-relaxed">请扫描下方二维码或添加技术顾问。我们将根据您的业务规模为您安排专属 24h 试用节点。</p>
+            
+            <div class="w-48 h-48 bg-white mx-auto mb-8 rounded-xl flex items-center justify-center p-2 qr-pulse">
+                <img src="wechat-qr.jpg" alt="微信扫码咨询" class="w-full h-full object-contain">
             </div>
+
+            <!-- <div class="font-mono text-brand-primary font-bold bg-brand-primary/10 py-3 rounded-lg border border-brand-primary/20">
+                wechat: ToklinkSupport
+            </div> -->
+            <p class="mt-4 text-[10px] text-gray-600">添加时请备注：Toklink 试用</p>
         </div>
     </div>
 
-    <!-- status panel markup from index5 -->
     <div id="status-panel">
         <div class="max-w-6xl mx-auto">
             <div class="flex justify-between items-center mb-12">
                 <div>
                     <h2 class="text-4xl font-bold text-white mb-2">Toklink 全球节点监控中心</h2>
-                    <p class="text-gray-500 font-mono">Real-time Network Latency & Load Analysis</p>
+                    <p class="text-gray-500 font-mono text-sm">Real-time Network Latency & Load Analysis</p>
                 </div>
-                <button onclick="closeStatusPanel()" class="w-12 h-12 glass-card flex items-center justify-center hover:bg-white/10 text-2xl">✕</button>
+                <button onclick="closeStatusPanel()" class="w-12 h-12 glass-card flex items-center justify-center hover:bg-white/10 text-2xl text-white">✕</button>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
@@ -342,7 +343,7 @@
 
             <div class="glass-card overflow-hidden border-white/5">
                 <table class="w-full text-left text-sm mono">
-                    <thead class="bg-white/5 text-gray-400 uppercase text-xs">
+                    <thead class="bg-white/5 text-gray-400 uppercase text-xs text-center">
                         <tr>
                             <th class="px-8 py-4">节点位置 / 运营商</th>
                             <th class="px-8 py-4">实时延迟</th>
@@ -351,10 +352,9 @@
                         </tr>
                     </thead>
                     <tbody id="node-list" class="divide-y divide-white/5">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
-            
             <p class="mt-8 text-center text-gray-600 text-xs font-mono">系统每 3 秒自动同步全球节点拓扑数据</p>
         </div>
     </div>
@@ -372,17 +372,15 @@
         function closeConsultationModal(e, forceClose) {
             if (forceClose || (e && e.target === consultationModal)) { consultationModal.classList.remove('active'); }
         }
-        // 节点状态逻辑：保留原始列表，并在末尾追加东南亚节点
+
         const nodes = [
-            { loc: "美国 - 洛杉矶 (AT&T Residential)", base: 120, variance: 30 },
-            { loc: "美国 - 纽约 (Verizon Fios)", base: 130, variance: 30 },
-            // { loc: "英国 - 伦敦 (BT Business)", base: 200, variance: 80 },
+            { loc: "美国 - 洛杉矶 (AT&T Residential)", base: 140, variance: 30 },
+            { loc: "美国 - 纽约 (Verizon Fios)", base: 160, variance: 30 },
             { loc: "日本 - 东京 (NTT Docomo)", base: 80, variance: 30 },
             { loc: "德国 - 法兰克福 (Deutsche Telekom)", base: 100, variance: 30 },
             { loc: "中国 - 香港专线 (CN2 GIA)", base: 45, variance: 15 },
             { loc: "法国 - 巴黎 (Orange S.A.)", base: 110, variance: 30 },
             { loc: "新加坡 (Singtel Premium)", base: 50, variance: 20 },
-            // 东南亚扩展节点
             { loc: "泰国 - 曼谷 (TrueIDC)", base: 60, variance: 25 },
             { loc: "马来西亚 - 吉隆坡 (TMNet)", base: 65, variance: 30 },
             { loc: "印度尼西亚 - 雅加达 (Biznet)", base: 80, variance: 35 },
@@ -394,8 +392,8 @@
             list.innerHTML = nodes.map((node, idx) => {
                 const initial = Math.max(1, node.base + Math.floor((Math.random() - 0.5) * node.variance));
                 return `
-                <tr class="hover:bg-white/[0.02] transition">
-                    <td class="px-8 py-5 flex items-center gap-3">
+                <tr class="hover:bg-white/[0.02] transition text-center">
+                    <td class="px-8 py-5 flex items-center justify-center gap-3">
                         <span class="status-dot dot-online"></span>
                         <span class="text-white font-medium text-base">${node.loc}</span>
                     </td>
@@ -408,7 +406,6 @@
             `}).join('');
         }
 
-        // 模拟实时心跳更新
         function updatePings() {
             nodes.forEach((node, idx) => {
                 const el = document.getElementById(`ping-${idx}`);
@@ -424,7 +421,7 @@
             document.getElementById('status-panel').classList.add('active');
             renderNodes();
             setInterval(updatePings, 2000);
-            document.body.style.overflow = 'hidden'; // 禁止背景滚动
+            document.body.style.overflow = 'hidden';
         }
 
         function closeStatusPanel() {
